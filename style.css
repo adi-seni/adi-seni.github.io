@@ -1,0 +1,11 @@
+body * {
+    font-family: "Montserrat", sans-serif;
+}
+
+.handwriting {
+    font-family: "Ephesis", cursive !important;
+}
+
+.svh-100 {
+    height: 100svh;
+}

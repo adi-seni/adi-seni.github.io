@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Undangan</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <style>
+            body * {
+                font-family: "Montserrat", sans-serif;
+            }
+            .handwriting {
+                font-family: "Ephesis", cursive;
+            }
+            .pointer:hover {
+                cursor: pointer;
+            }
+            /* width */
+            ::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #ffffff;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #3f3f3f;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #1b1b1b;
+            }
+        </style>
+    </head>
+    <body class="overflow-hidden">
+        <!-- <audio id="myAudio" src="song.mp3" loop></audio> -->
+        <div class="position-fixed top-0 mt-5 me-2 pt-4 z-3 end-0">
+            <div id="alert-message" style="display: none" class="alert alert-danger"></div>
+        </div>
+        <div class="position-fixed vh-100 w-100 z-2 bg-dark" id="cover">
+            <img src="img/IMG-20250319-WA0003 - L.jpg" class="d-none d-xl-block h-100 w-100 object-fit-cover" />
+            <img src="img/IMG-20250319-WA0003.jpg" class="d-block d-xl-none h-100 w-100 object-fit-cover" />
+            <div class="d-flex flex-column position-fixed h-100 w-100 top-0 justify-content-start justify-content-xl-end">
+                <div class="d-flex justify-content-center">
+                    <div class="z-3 text-center bg-white bg-opacity-75 rounded-5 text-black p-5 mx-3 my-5 my-lg-3">
+                        <!-- <h1 class="fs-3">UNDANGAN</h1> -->
+                        <h5 class="mb-3">Undangan Pawiwahan</h5>
+                        <h1 class="handwriting display-1 mb-3">Adi & Seni</h1>
+                        <button type="button" class="btn btn-dark rounded-pill" id="open-invitation"><i class="bi bi-envelope-fill"></i> Buka Undangan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar fixed-top bg-dark navbar-expand-lg" data-bs-theme="dark" style="display: none" id="main-nav">
+            <div class="container-fluid px-md-5">
+                <a class="navbar-brand" href="#" onclick="return false">Adi & Seni</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link link-home scroll-link" data-id="home" aria-current="page" href="#">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-about scroll-link" data-id="about" aria-current="page" href="#">Tentang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-galery scroll-link" data-id="galery" aria-current="page" href="#">Galeri</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="vh-100" id="home">
+            <div id="main-carousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
+                <div class="carousel-inner h-100">
+                    <div class="carousel-item h-100 active">
+                        <div class="pt-5 position-absolute bg-black h-100 w-100 bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white gap-4 gap-md-3">
+                            <h1 class="handwriting display-1 m-0" data-aos="slide-up">Adi & Seni</h1>
+                            <div data-aos="slide-up">Rabu, 09 April 2025</div>
+                            <div class="d-flex flex-row gap-3 counter-container" data-aos="slide-up">
+                                <div class="text-center"><span class="counter-days"></span><br />Days</div>
+                                <div class="text-center"><span class="counter-hours"></span><br />Hours</div>
+                                <div class="text-center"><span class="counter-minutes"></span><br />Minutes</div>
+                                <div class="text-center"><span class="counter-seconds"></span><br />Seconds</div>
+                            </div>
+                            <a href="#" data-id="about" type="button" class="btn btn-outline-light scroll-link" data-aos="slide-up"> Read More </a>
+                        </div>
+                        <img src="img/IMG-20250319-WA0003.jpg" class="object-fit-cover w-100 h-100" alt="img/wedding1.jpg" />
+                    </div>
+                    <div class="carousel-item position-relative h-100">
+                        <div class="pt-5 position-absolute bg-black h-100 w-100 bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white gap-4 gap-md-3">
+                            <h1 class="handwriting display-1 m-0" data-aos="slide-up">Adi & Seni</h1>
+                            <div data-aos="slide-up">Rabu, 09 April 2025</div>
+                            <div class="d-flex flex-row gap-3 counter-container" data-aos="slide-up">
+                                <div class="text-center"><span class="counter-days"></span><br />Days</div>
+                                <div class="text-center"><span class="counter-hours"></span><br />Hours</div>
+                                <div class="text-center"><span class="counter-minutes"></span><br />Minutes</div>
+                                <div class="text-center"><span class="counter-seconds"></span><br />Seconds</div>
+                            </div>
+                            <a href="#" data-id="about" type="button" class="btn btn-outline-light scroll-link" data-aos="slide-up"> Read More </a>
+                        </div>
+                        <img src="img/IMG-20250319-WA0007.jpg" class="object-fit-cover w-100 h-100" alt="img/wedding2.jpg" />
+                    </div>
+                    <div class="carousel-item position-relative h-100">
+                        <div class="pt-5 position-absolute bg-black h-100 w-100 bg-opacity-50 d-flex flex-column justify-content-center align-items-center text-white gap-4 gap-md-3">
+                            <h1 class="handwriting display-1 m-0" data-aos="slide-up">Adi & Seni</h1>
+                            <div data-aos="slide-up">Rabu, 09 April 2025</div>
+                            <div class="d-flex flex-row gap-3 counter-container" data-aos="slide-up">
+                                <div class="text-center"><span class="counter-days"></span><br />Days</div>
+                                <div class="text-center"><span class="counter-hours"></span><br />Hours</div>
+                                <div class="text-center"><span class="counter-minutes"></span><br />Minutes</div>
+                                <div class="text-center"><span class="counter-seconds"></span><br />Seconds</div>
+                            </div>
+                            <a href="#" data-id="about" type="button" class="btn btn-outline-light scroll-link" data-aos="slide-up"> Read More </a>
+                        </div>
+                        <img src="img/IMG-20250319-WA0005.jpg" class="object-fit-cover w-100 h-100" alt="img/wedding3.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-5" id="about">
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1>TENTANG</h1>
+                        <div class="v-stack my-5">
+                            <div class="handwriting fs-2 mb-3">Om Swastyastu</div>
+                            <p class="px-lg-5">Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa, Perkenankanlah Kami Mengundang Bapak/Ibu/ Saudara/i Untuk Berkenan Hadir Di Acara Manusa Yadnya Pawiwahan (Pernikahan) Kami.</p>
+                        </div>
+                        <div class="row justify-content-center overflow-x-hidden gap-5 mb-5">
+                            <div class="col-8 col-md-4 col-lg-3" data-aos="slide-right">
+                                <img src="img/boy.jpg" class="w-100 rounded-circle mb-4" alt="" />
+                                <div class="handwriting text-center fs-1">I Wayan Adi Setiawan</div>
+                            </div>
+                            <div class="col-8 col-md-4 col-lg-3" data-aos="slide-left">
+                                <img src="img/girl.jpg" class="w-100 rounded-circle mb-4" alt="" />
+                                <div class="handwriting text-center fs-1">Luh Putu Seni</div>
+                            </div>
+                            <!-- <div class="col-lg-4 p-0 p-lg-4">
+                                <div class="position-relative shadow" data-aos="slide-right">
+                                    <img src="img/boy.jpg" class="w-100" alt="" />
+                                    <div class="position-absolute bottom-0 bg-black bg-opacity-50 text-white px-3 py-5 w-100">
+                                        <div class="vstack">
+                                            <div class="handwriting fs-3 fw-bold">I Wayan Adi Setiawan</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 p-0 p-lg-4">
+                                <div class="position-relative shadow" data-aos="slide-left">
+                                    <img src="img/girl.jpg" class="w-100" alt="" />
+                                    <div class="position-absolute bottom-0 bg-black bg-opacity-50 text-white px-3 py-5 w-100">
+                                        <div class="vstack">
+                                            <div class="handwriting fs-3 fw-bold">Luh Putu Seni</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="fs-4 mb-4">Resepsi Pawiwahan</div>
+                        <div class="container-fluid overflow-hidden">
+                            <div class="row justify-content-center g-5 g-lg-3 mb-5">
+                                <div class="col-lg-3">
+                                    <div class="vstack" data-aos="slide-right">
+                                        <i class="bi bi-house-fill fs-1"></i>
+                                        <div class="fw-semibold mb-2">TEMPAT</div>
+                                        <div>Br. Geriana Kauh, Duda Utara, Selat, Karangasem</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="vstack" data-aos="slide-up">
+                                        <i class="bi bi-calendar-event-fill fs-1"></i>
+                                        <div class="fw-semibold mb-2">TANGGAL</div>
+                                        <div>Rabu, 09 April 2025</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="vstack" data-aos="slide-left">
+                                        <i class="bi bi-clock-fill fs-1"></i>
+                                        <div class="fw-semibold mb-2">WAKTU</div>
+                                        <div>13:00 WITA - Selesai</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center">
+                                <a href="https://maps.app.goo.gl/ARwW7yHkmDPKZzC67" target="_blank" class="btn btn-dark mb-4"><i class="bi bi-map-fill"></i> Maps</a>
+                                <div class="ratio ratio-21x9 img-thumbnail">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.700343319138!2d115.4929208!3d-8.4310595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd205209b38b4ff%3A0xc0a23234fead27f9!2sGeriana%20Kauh!5e0!3m2!1sen!2sid!4v1742432017861!5m2!1sen!2sid" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-lg-5 mt-5 mb-3">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir di acara Upacara Pawiwahan (Pernikahan) Kami.</div>
+                        <div class="px-lg-5 handwriting fs-2">Om Santih Santih Santih Om</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-5" id="galery">
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="mb-4">GALERI</h1>
+                        <div class="container">
+                            <div class="row g-3 justify-content-center">
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0000.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0000.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0000.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0001.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0001.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0001.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0002.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0002.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0002.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0003.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0003.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0003.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0004.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0004.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0004.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0005.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0005.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0005.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0006.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0006.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0006.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0007.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0007.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0007.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0008.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0008.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0008.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <a href="img/IMG-20250319-WA0009.jpg" data-lightbox="image-gallery">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="img/IMG-20250319-WA0009.jpg" loading="lazy" data-aos="slide-up" data-aos-delay="0" class="h-100 w-100 object-fit-cover rounded" data-galery="IMG-20250319-WA0009.jpg" />
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-5 p-4 text-center bg-dark text-white">~ Terima kasih ~</footer>
+
+        <a href="#" id="toggle-play" style="display: none">
+            <div class="bg-dark text-white position-fixed m-3 p-2 bottom-0 start-0 rounded">
+                <i id="playback-icon" class="bi bi-stop-fill"></i>
+            </div>
+        </a>
+
+        <a href="#" id="to-top" class="scroll-link" data-id="home" style="display: none">
+            <div class="bg-dark text-white position-fixed m-3 p-2 bottom-0 end-0 rounded">
+                <i class="bi bi-chevron-up"></i>
+            </div>
+        </a>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            $(window).scrollTop(0);
+            AOS.init();
+            lightbox.option({
+                disableScrolling: true,
+                alwaysShowNavOnTouchDevices: true,
+            });
+            function navbarView() {
+                if (!$("body").hasClass("overflow-hidden")) {
+                    if ($(window).scrollTop() > $(window).height() / 2) {
+                        $("#main-nav").fadeIn();
+                        $("#to-top").fadeIn();
+                        $("#toggle-play").fadeIn();
+                    } else {
+                        $("#main-nav").fadeOut();
+                        $("#to-top").fadeOut();
+                        $("#toggle-play").fadeOut();
+                    }
+                }
+            }
+
+            // counter
+            let countDownDate = new Date("Apr 09, 2025 13:00:00").getTime();
+            // Update the count down every 1 second
+            let x = setInterval(function () {
+                // Get todays date and time
+                let now = new Date().getTime();
+                // Find the distance between now and the count down date
+                let distance = countDownDate - now;
+                // Time calculations for days, hours, minutes and seconds
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // Display the result in the element with id="demo"
+                $(".counter-days").html(days);
+                $(".counter-hours").html(hours);
+                $(".counter-minutes").html(minutes);
+                $(".counter-seconds").html(seconds);
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    $(".counter-container").html("Happily Ever After");
+                }
+            }, 1000);
+            // end of counter
+
+            $(document).ready(function () {
+                let position = {
+                    home: -10,
+                    about: $("#about").offset().top,
+                    galery: $("#galery").offset().top,
+                };
+                $("#open-invitation").click(function () {
+                    $("#cover").fadeOut(function () {
+                        $("body").removeAttr("class");
+                        document.getElementById("myAudio").play();
+                    });
+                });
+                $("#toggle-play").click(function (e) {
+                    e.preventDefault();
+                    let myAudio = document.getElementById("myAudio");
+                    if ($("#playback-icon").hasClass("bi-stop-fill")) {
+                        myAudio.pause();
+                        myAudio.currentTime = 0;
+                    } else {
+                        myAudio.play();
+                    }
+                    $("#playback-icon").toggleClass("bi-stop-fill bi-play-fill");
+                });
+                $(window).scroll(function () {
+                    let distances = {};
+                    let windowScroll = $(window).scrollTop() + window.innerHeight / 2;
+                    navbarView();
+                    let navActive;
+                    $.each(position, function (idx, val) {
+                        distances[idx] = windowScroll - val;
+                    });
+                    let positiveValues = Object.values(distances).filter((value) => value > 0);
+                    let minPositiveValue = Math.min(...positiveValues);
+                    navActive = Object.keys(distances).find((key) => distances[key] === minPositiveValue);
+                    $(".nav-link").removeClass("active");
+                    $(".link-" + navActive).addClass("active");
+                });
+                $(".scroll-link").click(function (e) {
+                    e.preventDefault();
+                    let id = $(this).data("id");
+                    $("html, body").scrollTop($("#" + id).offset().top);
+                    if ($(this).hasClass("nav-link")) {
+                        $(".navbar-toggler").click();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
